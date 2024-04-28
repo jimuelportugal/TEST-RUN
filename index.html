@@ -64,24 +64,24 @@
       window.addEventListener("DOMContentLoaded", () => {
         const imageContainer = document.getElementById("imageContainer");
 
-        // Function to fetch images from a folder
+      
         function fetchImages() {
-          const folderPath = "Tensei Youjo wa Akiramenai/CHAPTER 1/"; // Change this to your folder path
+          const folderPath = "Tensei Youjo wa Akiramenai/CHAPTER 1/";
           const imageName = "Tensei Youjo wa Akiramenai";
-          const totalImages = 36; // total number of images you have
+          const totalImages = 5; //
 
           // First image
           const firstImg = new Image();
           firstImg.src = `${folderPath}${imageName}.jpg`;
-          firstImg.alt = `${imageName} 1`; // Assuming it's the first image
+          firstImg.alt = `${imageName} 1`; 
           firstImg.classList.add("imageItem");
           imageContainer.appendChild(firstImg);
 
           // Rest of the images
           for (let i = 1; i <= totalImages; i++) {
             const img = new Image();
-            img.src = `${folderPath}${imageName} (${i}).jpg`; // Updated file name format
-            img.alt = `${imageName} ${i + 1}`; // Incrementing i for the alt text
+            img.src = `${folderPath}${imageName} (${i}).jpg`; 
+            img.alt = `${imageName} ${i + 1}`; 
             img.classList.add("imageItem");
             imageContainer.appendChild(img);
           }
