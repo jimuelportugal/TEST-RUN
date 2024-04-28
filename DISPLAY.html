@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Images</title>
+    <style>
+      body {
+        background-color: #11212D;
+      }
+
+      /* Navigation bar */
+      .div-nav {
+        position: sticky;
+        top: 0;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+        background: #253745;
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-top: 0;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+      }
+      .div-nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .div-nav li {
+        display: inline;
+        margin: 0 10px;
+      }
+      /* Navigation bar link  */
+      .div-nav a {
+        color: #CCD0CF;
+        text-decoration: none;
+        font-size: 15px;
+      }
+      #imageContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .imageItem {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div-nav" title="Navigation Bar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </div>
+    <div id="imageContainer"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const imageContainer = document.getElementById("imageContainer");
+
+        // Function to fetch images from a folder
+        function fetchImages() {
+          const folderPath = "Tensei Youjo wa Akiramenai/CHAPTER 1/"; // Change this to your folder path
+          const imageName = "Tensei Youjo wa Akiramenai";
+          const totalImages = 36; // total number of images you have
+
+          // First image
+          const firstImg = new Image();
+          firstImg.src = `${folderPath}${imageName}.jpg`;
+          firstImg.alt = `${imageName} 1`; // Assuming it's the first image
+          firstImg.classList.add("imageItem");
+          imageContainer.appendChild(firstImg);
+
+          // Rest of the images
+          for (let i = 1; i <= totalImages; i++) {
+            const img = new Image();
+            img.src = `${folderPath}${imageName} (${i}).jpg`; // Updated file name format
+            img.alt = `${imageName} ${i + 1}`; // Incrementing i for the alt text
+            img.classList.add("imageItem");
+            imageContainer.appendChild(img);
+          }
+        }
+
+        fetchImages();
+      });
+    </script>
+  </body>
+</html>
