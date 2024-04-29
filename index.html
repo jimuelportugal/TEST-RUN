@@ -128,7 +128,7 @@
         files.forEach((file) => {
           output += `${file.name} (${file.id})\n`;
         });
-        document.getElementById('content').innerText = output;
+        document.getElementById('content').textContent = output;
       } catch (error) {
         console.error('Error fetching files:', error);
         document.getElementById('content').innerText = 'Error fetching files. Please try again.';
