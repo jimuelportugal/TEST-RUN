@@ -17,6 +17,7 @@
     // Set your client ID and API key from the Developer Console
     const CLIENT_ID = '874869339776-fmp7jb9soctgqodhdv0lkun8nnffort5.apps.googleusercontent.com';
     const API_KEY = 'AIzaSyCmR8BmAIGGVXyoB-egVthrSlE-vDzsqtk';
+    const FOLDER_ID = '1LlyZ-F9CQb_Bv-9A3Tp9l1YfYTOVxwIT';
 
     // Discovery doc URL for APIs used by the quickstart
     const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
@@ -48,7 +49,9 @@
     async function initializeGapiClient() {
       await gapi.client.init({
         apiKey: API_KEY,
+        clientId: CLIENT_ID,
         discoveryDocs: [DISCOVERY_DOC],
+        scope: SCOPES
       });
       gapiInited = true;
       maybeEnableButtons();
@@ -116,6 +119,7 @@
     async function listFiles() {
       try {
         const response = await gapi.client.drive.files.list({
+          'q': `'${FOLDER_ID}' in parents`,
           'pageSize': 10,
           'fields': 'files(id, name)',
         });
