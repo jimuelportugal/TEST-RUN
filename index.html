@@ -32,8 +32,7 @@
     // Hide buttons by default
     const authorizeButton = document.getElementById('authorize_button');
     const signoutButton = document.getElementById('signout_button');
-    authorizeButton.style.visibility = 'hidden';
-    signoutButton.style.visibility = 'hidden';
+    signoutButton.style.visibility = 'hidden'; // Hide signout button by default
 
     /**
      * Callback after api.js is loaded.
@@ -75,7 +74,7 @@
      */
     function maybeEnableButtons() {
       if (gapiInited && gisInited) {
-        authorizeButton.style.visibility = 'visible';
+        authorizeButton.style.visibility = 'visible'; // Unhide the authorize button
       }
     }
 
