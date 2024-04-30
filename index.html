@@ -97,13 +97,17 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        margin-left: -75px;
+      }
+
+      .loader-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       .spinner span {
         position: absolute;
-        top: 50%;
-        left: var(--left);
         width: 35px;
         height: 7px;
         background: #ffff;
@@ -210,16 +214,18 @@
           // Insert loader before the first image
           const loaderFirstImg = document.createElement("div");
           loaderFirstImg.innerHTML = `
-      <div class="spinner">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<div class="loader-container">
+  <div class="spinner">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
     `;
           imageContainer.appendChild(loaderFirstImg);
 
@@ -240,16 +246,19 @@
             // Insert loader before each image
             const loaderImg = document.createElement("div");
             loaderImg.innerHTML = `
-        <div class="spinner">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+<div class="loader-container">
+  <div class="spinner">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
       `;
             imageContainer.appendChild(loaderImg);
 
