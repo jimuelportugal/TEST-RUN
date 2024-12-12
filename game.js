@@ -6,7 +6,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 },  
+      gravity: { y: 250 },  
       debug: true        
     }
   },
@@ -57,7 +57,7 @@ function update() {
   }
 
   if (spaceBar.isDown && player.body.touching.down) {
-    player.setVelocityY(-250); // Set upward velocity for jump
+    player.setVelocityY(-200); // Set upward velocity for jump
   }
 
   // Debugging: Log position to check player
