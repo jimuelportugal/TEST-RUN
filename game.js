@@ -57,7 +57,7 @@ function update() {
   }
 
   if (spaceBar.isDown && player.body.touching.down) {
-    player.setVelocityY(-300); // Set upward velocity for jump
+    player.setVelocityY(-100); // Set upward velocity for jump
   }
 
   // Debugging: Log position to check player
